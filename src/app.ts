@@ -17,7 +17,7 @@ const startServer = async () => {
   try {
     app.listen(process.env.PORT, () => {
       console.log(`Server Running on:\n http://localhost:${process.env.PORT}`);
-    });
+    }).on('upgrade', unblocker.onUpgrade);;
   } catch (error) {
     console.log("Server Error: \n", error.toString());
   }
